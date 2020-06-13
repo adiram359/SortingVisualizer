@@ -13,6 +13,16 @@ document.querySelector('.algobutton3').addEventListener('click', form3submission
 
 function form1submission(event) {
   event.preventDefault()
+  var block = document.getElementById("000");
+  var option = block.options[block.selectedIndex].value
+  const details = {block: 0,
+                    option:option}
+  console.log(details)
+  sort(details)
+}
+
+function form2submission(event) {
+  event.preventDefault()
   var block = document.getElementById("001");
   var option = block.options[block.selectedIndex].value
   const details = {block: 1,
@@ -21,21 +31,11 @@ function form1submission(event) {
   sort(details)
 }
 
-function form2submission(event) {
+function form3submission(event) {
   event.preventDefault()
   var block = document.getElementById("002");
   var option = block.options[block.selectedIndex].value
   const details = {block: 2,
-                    option:option}
-  console.log(details)
-  sort(details)
-}
-
-function form3submission(event) {
-  event.preventDefault()
-  var block = document.getElementById("003");
-  var option = block.options[block.selectedIndex].value
-  const details = {block: 3,
                     option:option}
   console.log(details)
   sort(details)
@@ -48,16 +48,20 @@ var c = canvas.getContext('2d');
 
 
 
-function drawbars(nums) {
+function drawbars(sortingObjects) {
+  console.log(sortingObjects)
   c.clearRect(0, 0, window.innerWidth, window.innerHeight)
-  const y = 240
-  var x = 240
-  for (var i = 0; i < nums.length; i += 1) {
-    c.fillStyle = nums[i].color
-    c.fillRect(x, y - nums[i].value, 5, nums[i].value)
-    x += 7
+  for (var i = 0; i < sortingObjects.length; i += 1) {
+    const obj = sortingObjects[i]
+    const nums = obj.nums
+    const y = obj.y
+    var x = Math.floor(window.innerWidth * 0.20)
+    const gap = 1
+    const width = (window.innerWidth * 0.6)/obj.count - gap
+    for (var j = 0; j < nums.length; j += 1) {
+      c.fillStyle = sortingObjects[i].color
+      c.fillRect(x, y - nums[j].value, width, nums[j].value)
+      x += width + gap
+    }
   }
-
-
-
 }
