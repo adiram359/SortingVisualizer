@@ -29,12 +29,33 @@ body {
   margin-left: 77%;
 
 }
-.algobutton {
+.algobutton1 {
   background: black;
   width: 120px;
   height: 50px;
   margin-top: 10px;
-  margin-left: 20px;
+  border: 3px solid #A569BD;
+  border-radius: 5px;
+  font-weight:500;
+  font-size:15px;
+  color: #D7BDE2
+}
+.algobutton2 {
+  background: black;
+  width: 120px;
+  height: 50px;
+  margin-top: 10px;
+  border: 3px solid #A569BD;
+  border-radius: 5px;
+  font-weight:500;
+  font-size:15px;
+  color: #D7BDE2
+}
+.algobutton3 {
+  background: black;
+  width: 120px;
+  height: 50px;
+  margin-top: 10px;
   border: 3px solid #A569BD;
   border-radius: 5px;
   font-weight:500;
