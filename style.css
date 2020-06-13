@@ -1,0 +1,53 @@
+canvas {
+  border: 1px solid black;
+  height: 100%;
+  width: 100%;
+  background: black;
+}
+
+body {
+  margin: 0px;
+}
+
+.choosealgo {
+  width:160px;
+  height:120px;
+  margin-left: 88%;
+  margin-top: 66%;
+  border-color:black;
+  border-radius:5px;
+  border: 2px solid #85C1E9;
+  justify-content: center;
+  align-items: center
+}
+
+
+.outersettingsdiv {
+  position: absolute;
+  justify-content: center;
+  align-items:center;
+  margin-left: 77%;
+
+}
+.algobutton {
+  background: black;
+  width: 120px;
+  height: 50px;
+  margin-top: 10px;
+  margin-left: 20px;
+  border: 3px solid #A569BD;
+  border-radius: 5px;
+  font-weight:500;
+  font-size:15px;
+  color: #D7BDE2
+}
+button:active {
+           box-shadow: 0 5px #F4ECF7;
+           transform: translateY(1px);
+        }
+form {
+  align-self: center;
+  margin-top: 20px;
+  margin-left: 20px;
+
+}
