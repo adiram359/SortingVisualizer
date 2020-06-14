@@ -9,29 +9,40 @@ function bar() {
 
 const sortingObject1 = {
   nums: [],
-  y: 240,
+  y: 0.29 * window.innerHeight,
   count: 100,
   color: "#F4D03F"
 }
+console.log(sortingObject1.y)
+console.log(window.innerHeight)
 const sortingObject2 = {
   nums: [],
-  y: 500,
+  y: 500/837 * window.innerHeight,
   count: (150 - 50),
   color: "#45B39D",
 }
 
 const sortingObject3 = {
   nums: [],
-  y: 760,
+  y: 760/837 * window.innerHeight,
   count: (150 - 50),
   color: "#E67E22"
 }
 
 var sortingObjects = [sortingObject1, sortingObject2, sortingObject3]
+for (var i = 0; i < sortingObjects.length; i += 1) {
+  regenerate(i)
+}
+drawbars(sortingObjects)
 
-sortingObjects = sortingObjects.map((sortingObject) => generateArray(sortingObject))
+function regenerate(index) {
+  generateArray(sortingObjects[index])
+  drawbars(sortingObjects)
+}
+
 
 function generateArray(sortingObject) {
+    sortingObject.nums = []
     for (var j = 0; j < sortingObject.count; j += 1) {
       sortingObject.nums.push(bar())
     }
@@ -39,7 +50,7 @@ function generateArray(sortingObject) {
 
 }
 
-drawbars(sortingObjects)
+
 
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
@@ -132,7 +143,6 @@ async function mergeSort(obj, start, end) {
 
 async function sort (details) {
   const sortObject = sortingObjects[details.block - 1 + 1]
-  console.log(details)
   if (details.option === "Insertion Sort") {
     insertionSort(sortObject)
   }
@@ -142,15 +152,4 @@ async function sort (details) {
   else if (details.option === "Merge Sort") {
     mergeSort(sortObject, 0, sortObject.nums.length - 1)
   }
-}
-
-
-async function countdown(num) {
-  if (num === 0) {
-    console.log(num)
-    return;
-  }
-  await sleep(1000)
-  console.log(num)
-  countdown(num - 1)
 }
